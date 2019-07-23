@@ -37,4 +37,7 @@ LD_PRELOAD=/path/to/libcuda2.so python test.py
 ```bash
 LD_PRELOAD=/path/to/libcuda2.so WRAPPER_MAX_MEMORY=4217928960 python test.py
 
+LD_PRELOAD=/cuda-wrapper/release/libcuda2.so.9.2 WRAPPER_MAX_MEMORY=4217928960 python mnist.py
+LD_PRELOAD=/cuda-wrapper/release/libcuda3.so.9.2 WRAPPER_MAX_MEMORY=4217928960 python cifar10-pytorch.py
+
 ```

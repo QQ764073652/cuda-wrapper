@@ -58,18 +58,18 @@ void addHash(unsigned long long key,size_t value) {
         allocsize[temp].key=key;
         allocsize[temp].value=value;
 	    //printf("allocsize %lld %zu\n", key, value);
-    } 
+    }
     else if(allocsize[temp].key==key) {
-        allocsize[temp].value=value;     
-    } 
+        allocsize[temp].value=value;
+    }
     else {
-        struct HashArray *p=&allocsize[temp]; 		
-        while(p->key!=key&&p->next!=NULL) {  
+        struct HashArray *p=&allocsize[temp];
+        while(p->key!=key&&p->next!=NULL) {
             p=p->next;
         }
         if(p->key==key) {
             p->value=value;
-        } 
+        }
         else {
             p->next=(struct HashArray*)malloc(sizeof(struct HashArray));
             p=p->next;
@@ -79,7 +79,7 @@ void addHash(unsigned long long key,size_t value) {
         }
     }
     getCurrentTime(timebuf);
-    printf("addHash\nTime: %s  addHash: key: %lld value: %zu\n", timebuf, key, value);  
+    printf("addHash\nTime: %s  addHash: key: %lld value: %zu\n", timebuf, key, value);
 }
 size_t getHash(unsigned long long key) {
     int temp=key%mod;
@@ -93,7 +93,7 @@ size_t getHash(unsigned long long key) {
     //printf("pkey: %lld\n", p->key);
     while(p->key!=key&&p->next!=NULL) {
 	    p=p->next;
-    }		
+    }
     if (p->key == key) {
         printf("getHash hit\n");
         getCurrentTime(timebuf);
@@ -103,7 +103,7 @@ size_t getHash(unsigned long long key) {
     else {
         printf("hash hit and miss\n");
         getCurrentTime(timebuf);
-        printf("Time: %s  key: %lld \n", timebuf, key );        
+        printf("Time: %s  key: %lld \n", timebuf, key );
         return 0;
     }
 }
@@ -129,10 +129,10 @@ void init_func() {
     }
 
     if (dup2(fd, 1) == -1) {
-        perror("dup2 failed"); 
+        perror("dup2 failed");
         exit(1);
     }
-    
+
     if(open_flag == 0 && handle == NULL) {
         //char *error;
     	handle = dlopen (LIB_STRING, RTLD_LAZY);
@@ -152,7 +152,7 @@ void init_func() {
 }
 
 void before_func() {
-	
+
 }
 
 
@@ -178,7 +178,13 @@ CUresult cuInit(unsigned int Flags) {
     return r;
 }
 
-
+/**
+ * 修改total为total_quota
+ * 修改free>total_quota时为total_quota
+ * @param free
+ * @param total
+ * @return
+ */
 CUresult cuMemGetInfo_v2(size_t *free, size_t *total) {
     before_func();
     CUresult (*fakecuMemGetInfo_v2)(size_t *, size_t *);
@@ -190,16 +196,18 @@ CUresult cuMemGetInfo_v2(size_t *free, size_t *total) {
     CUresult r;
     r = checkCudaErrors((*fakecuMemGetInfo_v2)(free, total));
     //TODO: change free and total to proper value
-    //*free =  *free / 2;
-    //*total = *total / 2;
-    //printf("cumemgetinfo: free : %zu, total : %zu\n", *free, *total);
+    if(*free > total_quota){
+        *free = total_quota;
+    }
+    *total = total_quota;
+    printf("cumemgetinfo: free : %zu, total : %zu\n", *free, *total);
     post_func();
     return r;
 }
 
 int check_alloc_valid(size_t bytesize) {
     //printf("lock mem in check_alloc_valid\n");
-    pthread_mutex_lock(&mem_cnt_lock);	
+    pthread_mutex_lock(&mem_cnt_lock);
     if(total_mem + bytesize > total_quota) {
         fprintf (stderr, "alloc %zu failed, total_mem %zu, quota %zu\n", bytesize, total_mem,  total_quota);
         //printf("unlock mem in check_alloc_valid\n");
@@ -233,11 +241,11 @@ CUresult cuMemAlloc_v2(CUdeviceptr* dptr, size_t bytesize) {
         if(CUDA_SUCCESS != r) {
             //printf("lock if r != CUDA_SUCCESS\n");
             pthread_mutex_lock(&mem_cnt_lock);
-            total_mem -= bytesize;                  
+            total_mem -= bytesize;
             pthread_mutex_unlock(&mem_cnt_lock);
             //printf("unlock if r != CUDA_SUCCESS\n ");
         }
-        else {			
+        else {
             addHash((unsigned long long)dptr,bytesize);
             //TODO: assert
             //printf("cumemalloc: hash insert with bytesize %zu\n", bytesize);
