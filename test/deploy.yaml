@@ -1,0 +1,25 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: gpushare-01
+spec:
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: gpushare
+    spec:
+      containers:
+        - name: gpushare-01
+          image: 10.10.8.100:5000/bitahub/deepo:v2.0
+          volumeMounts:
+            - mountPath: /cuda-wrapper
+              name: cuda-wrapper
+          command: ["sh", "-c", "cd /cuda-wrapper && LD_PRELOAD=/cuda-wrapper/release/libcuda2.so.9.2 WRAPPER_MAX_MEMORY=4217928960  python /cuda-wrapper/test/mnist.py"]
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+      volumes:
+        - name: cuda-wrapper
+          hostPath:
+            path: /home/leinao/workspace/cuda-wrapper
