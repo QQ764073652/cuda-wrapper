@@ -1,0 +1,399 @@
+# LD_PRELOAD=/cuda-wrapper/release/libcuda3.so.9.2 WRAPPER_MAX_MEMORY=4294967296 python cifar10-pytorch.py
+SetQuota set total_quota: 4294967296
+CheckAlloc bytesize 2097152, allocated_mem 0, quota 4294967296, logic_free_mem: 3792870144 ,allocate_mem(Mb) 0
+CudaMalloc devPtr: 0x7ffdb1a3ffa0 0x7ffdb1a3fd98
+AddHash: key: 140727583768480 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 2097152 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4292870144
+CheckAlloc bytesize 2097152, allocated_mem 2097152, quota 4294967296, logic_free_mem: 3790772992 ,allocate_mem(Mb) 2
+CudaMalloc devPtr: 0x7ffdb1a3fac0 0x7ffdb1a3f8b8
+AddHash: key: 140727583767232 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 4194304 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4290772992
+CheckAlloc bytesize 2097152, allocated_mem 4194304, quota 4294967296, logic_free_mem: 3788675840 ,allocate_mem(Mb) 4
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 6291456 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4288675840
+CheckAlloc bytesize 2097152, allocated_mem 6291456, quota 4294967296, logic_free_mem: 3786578688 ,allocate_mem(Mb) 6
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 8388608 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4286578688
+CheckAlloc bytesize 20971520, allocated_mem 8388608, quota 4294967296, logic_free_mem: 3765607168 ,allocate_mem(Mb) 8
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 20971520 size(MB): 20
+CudaMalloc allocated_mem: 29360128 allocate_bytesize: 20971520 total_quota: 4294967296 logic_free_mem: 4265607168
+CheckAlloc bytesize 2097152, allocated_mem 29360128, quota 4294967296, logic_free_mem: 3763510016 ,allocate_mem(Mb) 28
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 31457280 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4263510016
+CheckAlloc bytesize 2097152, allocated_mem 31457280, quota 4294967296, logic_free_mem: 3761412864 ,allocate_mem(Mb) 30
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 33554432 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4261412864
+CheckAlloc bytesize 2097152, allocated_mem 33554432, quota 4294967296, logic_free_mem: 3759315712 ,allocate_mem(Mb) 32
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 35651584 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4259315712
+CheckAlloc bytesize 2097152, allocated_mem 35651584, quota 4294967296, logic_free_mem: 3757218560 ,allocate_mem(Mb) 34
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 37748736 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4257218560
+CheckAlloc bytesize 2097152, allocated_mem 37748736, quota 4294967296, logic_free_mem: 3755121408 ,allocate_mem(Mb) 36
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 39845888 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4255121408
+CheckAlloc bytesize 2097152, allocated_mem 39845888, quota 4294967296, logic_free_mem: 3753024256 ,allocate_mem(Mb) 38
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 41943040 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4253024256
+CheckAlloc bytesize 2097152, allocated_mem 41943040, quota 4294967296, logic_free_mem: 3750927104 ,allocate_mem(Mb) 40
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 44040192 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4250927104
+CheckAlloc bytesize 2097152, allocated_mem 44040192, quota 4294967296, logic_free_mem: 3748829952 ,allocate_mem(Mb) 42
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 46137344 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4248829952
+CheckAlloc bytesize 20971520, allocated_mem 46137344, quota 4294967296, logic_free_mem: 3727858432 ,allocate_mem(Mb) 44
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 20971520 size(MB): 20
+CudaMalloc allocated_mem: 67108864 allocate_bytesize: 20971520 total_quota: 4294967296 logic_free_mem: 4227858432
+CheckAlloc bytesize 2097152, allocated_mem 67108864, quota 4294967296, logic_free_mem: 3725761280 ,allocate_mem(Mb) 64
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 69206016 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4225761280
+CheckAlloc bytesize 2097152, allocated_mem 69206016, quota 4294967296, logic_free_mem: 3723664128 ,allocate_mem(Mb) 66
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 71303168 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4223664128
+CheckAlloc bytesize 2097152, allocated_mem 71303168, quota 4294967296, logic_free_mem: 3721566976 ,allocate_mem(Mb) 68
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 73400320 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4221566976
+CheckAlloc bytesize 2097152, allocated_mem 73400320, quota 4294967296, logic_free_mem: 3719469824 ,allocate_mem(Mb) 70
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 75497472 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4219469824
+CheckAlloc bytesize 2097152, allocated_mem 75497472, quota 4294967296, logic_free_mem: 3717372672 ,allocate_mem(Mb) 72
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 77594624 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4217372672
+CheckAlloc bytesize 2097152, allocated_mem 77594624, quota 4294967296, logic_free_mem: 3715275520 ,allocate_mem(Mb) 74
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 79691776 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4215275520
+CheckAlloc bytesize 2097152, allocated_mem 79691776, quota 4294967296, logic_free_mem: 3713178368 ,allocate_mem(Mb) 76
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 81788928 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4213178368
+CheckAlloc bytesize 2097152, allocated_mem 81788928, quota 4294967296, logic_free_mem: 3711081216 ,allocate_mem(Mb) 78
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 83886080 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4211081216
+CheckAlloc bytesize 20971520, allocated_mem 83886080, quota 4294967296, logic_free_mem: 3690109696 ,allocate_mem(Mb) 80
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 20971520 size(MB): 20
+CudaMalloc allocated_mem: 104857600 allocate_bytesize: 20971520 total_quota: 4294967296 logic_free_mem: 4190109696
+CheckAlloc bytesize 2097152, allocated_mem 104857600, quota 4294967296, logic_free_mem: 3688012544 ,allocate_mem(Mb) 100
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 106954752 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4188012544
+CheckAlloc bytesize 2097152, allocated_mem 106954752, quota 4294967296, logic_free_mem: 3685915392 ,allocate_mem(Mb) 102
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 109051904 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4185915392
+CheckAlloc bytesize 2097152, allocated_mem 109051904, quota 4294967296, logic_free_mem: 3683818240 ,allocate_mem(Mb) 104
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 111149056 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4183818240
+CheckAlloc bytesize 2097152, allocated_mem 111149056, quota 4294967296, logic_free_mem: 3681721088 ,allocate_mem(Mb) 106
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 113246208 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4181721088
+CheckAlloc bytesize 2097152, allocated_mem 113246208, quota 4294967296, logic_free_mem: 3679623936 ,allocate_mem(Mb) 108
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 115343360 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4179623936
+CheckAlloc bytesize 2097152, allocated_mem 115343360, quota 4294967296, logic_free_mem: 3677526784 ,allocate_mem(Mb) 110
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 117440512 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4177526784
+CheckAlloc bytesize 20971520, allocated_mem 117440512, quota 4294967296, logic_free_mem: 3656555264 ,allocate_mem(Mb) 112
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 20971520 size(MB): 20
+CudaMalloc allocated_mem: 138412032 allocate_bytesize: 20971520 total_quota: 4294967296 logic_free_mem: 4156555264
+CheckAlloc bytesize 20971520, allocated_mem 138412032, quota 4294967296, logic_free_mem: 3635583744 ,allocate_mem(Mb) 132
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 20971520 size(MB): 20
+CudaMalloc allocated_mem: 159383552 allocate_bytesize: 20971520 total_quota: 4294967296 logic_free_mem: 4135583744
+CheckAlloc bytesize 20971520, allocated_mem 159383552, quota 4294967296, logic_free_mem: 3614612224 ,allocate_mem(Mb) 152
+CudaMalloc devPtr: 0x7ffdb1a3fc60 0x7ffdb1a3fa58
+AddHash: key: 140727583767648 value: 20971520 size(MB): 20
+CudaMalloc allocated_mem: 180355072 allocate_bytesize: 20971520 total_quota: 4294967296 logic_free_mem: 4114612224
+CheckAlloc bytesize 2097152, allocated_mem 180355072, quota 4294967296, logic_free_mem: 3612515072 ,allocate_mem(Mb) 172
+CudaMalloc devPtr: 0x7ffdb1a40680 0x7ffdb1a40478
+AddHash: key: 140727583770240 value: 2097152 size(MB): 2
+CudaMalloc allocated_mem: 182452224 allocate_bytesize: 2097152 total_quota: 4294967296 logic_free_mem: 4112515072
+CheckAlloc bytesize 5376, allocated_mem 182452224, quota 4294967296, logic_free_mem: 3612509696 ,allocate_mem(Mb) 174
+CudaMalloc devPtr: 0x27a2dd0 0x7ffdb1a3c7f8
+AddHash: key: 41561552 value: 5376 size(MB): 0
+CudaMalloc allocated_mem: 182457600 allocate_bytesize: 5376 total_quota: 4294967296 logic_free_mem: 4112509696
+CheckAlloc bytesize 5376, allocated_mem 182457600, quota 4294967296, logic_free_mem: 3612504320 ,allocate_mem(Mb) 174
+CudaMalloc devPtr: 0x27a2dd8 0x7ffdb1a3c7f8
+AddHash: key: 41561560 value: 5376 size(MB): 0
+CudaMalloc allocated_mem: 182462976 allocate_bytesize: 5376 total_quota: 4294967296 logic_free_mem: 4112504320
+CheckAlloc bytesize 5376, allocated_mem 182462976, quota 4294967296, logic_free_mem: 3612498944 ,allocate_mem(Mb) 174
+CudaMalloc devPtr: 0x27a2de0 0x7ffdb1a3c7f8
+AddHash: key: 41561568 value: 5376 size(MB): 0
+CudaMalloc allocated_mem: 182468352 allocate_bytesize: 5376 total_quota: 4294967296 logic_free_mem: 4112498944
+CheckAlloc bytesize 5376, allocated_mem 182468352, quota 4294967296, logic_free_mem: 3612493568 ,allocate_mem(Mb) 174
+CudaMalloc devPtr: 0x27a2de8 0x7ffdb1a3c7f8
+AddHash: key: 41561576 value: 5376 size(MB): 0
+CudaMalloc allocated_mem: 182473728 allocate_bytesize: 5376 total_quota: 4294967296 logic_free_mem: 4112493568
+GetHash key: 0 value: 0 size(MB): 0
+CudaFree devPtr: (nil) 0x7ffdb1a3c758
+CudaFree allocated_mem: 182473728 reclaim_mem: 0 total_quota: 4294967296 logic_free_mem: 4112493568
+CheckAlloc bytesize 112, allocated_mem 182473728, quota 4294967296, logic_free_mem: 3612493456 ,allocate_mem(Mb) 174
+CudaMalloc devPtr: 0x21773a0 0x7ffdb1a3c758
+AddHash: key: 35091360 value: 112 size(MB): 0
+CudaMalloc allocated_mem: 182473840 allocate_bytesize: 112 total_quota: 4294967296 logic_free_mem: 4112493456
+CheckAlloc bytesize 1024, allocated_mem 182473840, quota 4294967296, logic_free_mem: 3612492432 ,allocate_mem(Mb) 174
+CudaMalloc devPtr: 0x21773b0 0x7ffdb1a3c718
+AddHash: key: 35091376 value: 1024 size(MB): 0
+CudaMalloc allocated_mem: 182474864 allocate_bytesize: 1024 total_quota: 4294967296 logic_free_mem: 4112492432
+CheckAlloc bytesize 32768, allocated_mem 182474864, quota 4294967296, logic_free_mem: 3612459664 ,allocate_mem(Mb) 174
+CudaMalloc devPtr: 0x2177408 0x7ffdb1a3c718
+AddHash: key: 35091464 value: 32768 size(MB): 0
+CudaMalloc allocated_mem: 182507632 allocate_bytesize: 32768 total_quota: 4294967296 logic_free_mem: 4112459664
+GetHash key: 0 value: 0 size(MB): 0
+CudaFree devPtr: (nil) 0x7ffdb1a3c7f8
+CudaFree allocated_mem: 182507632 reclaim_mem: 0 total_quota: 4294967296 logic_free_mem: 4112459664
+CheckAlloc bytesize 20971520, allocated_mem 182507632, quota 4294967296, logic_free_mem: 3591488144 ,allocate_mem(Mb) 174
+CudaMalloc devPtr: 0x7ffdb1a3e1a0 0x7ffdb1a3df98
+AddHash: key: 140727583760800 value: 20971520 size(MB): 20
+CudaMalloc allocated_mem: 203479152 allocate_bytesize: 20971520 total_quota: 4294967296 logic_free_mem: 4091488144
+CheckAlloc bytesize 52428800, allocated_mem 203479152, quota 4294967296, logic_free_mem: 3539059344 ,allocate_mem(Mb) 194
+CudaMalloc devPtr: 0x7ffdb1a3e190 0x7ffdb1a3df88
+AddHash: key: 140727583760784 value: 52428800 size(MB): 50
+CudaMalloc allocated_mem: 255907952 allocate_bytesize: 52428800 total_quota: 4294967296 logic_free_mem: 4039059344
+GetHash key: 140278881058816 hash hit and miss
+CudaFree devPtr: 0x7f9538e00000 0x7ffdb1a3e708
+CudaFree allocated_mem: 255907952 reclaim_mem: 0 total_quota: 4294967296 logic_free_mem: 4039059344
+CheckAlloc bytesize 20971520, allocated_mem 255907952, quota 4294967296, logic_free_mem: 3518087824 ,allocate_mem(Mb) 244
+CudaMalloc devPtr: 0x7ffdb1a3d440 0x7ffdb1a3d238
+AddHash: key: 140727583757376 value: 20971520 size(MB): 20
+CudaMalloc allocated_mem: 276879472 allocate_bytesize: 20971520 total_quota: 4294967296 logic_free_mem: 4018087824
+CheckAlloc bytesize 50331648, allocated_mem 276879472, quota 4294967296, logic_free_mem: 3467756176 ,allocate_mem(Mb) 264
+CudaMalloc devPtr: 0x7ffdb1a3d430 0x7ffdb1a3d228
+AddHash: key: 140727583757360 value: 50331648 size(MB): 48
+CudaMalloc allocated_mem: 327211120 allocate_bytesize: 50331648 total_quota: 4294967296 logic_free_mem: 3967756176
+GetHash key: 140278748938240 hash hit and miss
+CudaFree devPtr: 0x7f9531000000 0x7ffdb1a3d9a8
+CudaFree allocated_mem: 327211120 reclaim_mem: 0 total_quota: 4294967296 logic_free_mem: 3967756176
+CheckAlloc bytesize 20971520, allocated_mem 327211120, quota 4294967296, logic_free_mem: 3446784656 ,allocate_mem(Mb) 312
+CudaMalloc devPtr: 0x7ffdb1a3d440 0x7ffdb1a3d238
+AddHash: key: 140727583757376 value: 20971520 size(MB): 20
+CudaMalloc allocated_mem: 348182640 allocate_bytesize: 20971520 total_quota: 4294967296 logic_free_mem: 3946784656
+CheckAlloc bytesize 190840832, allocated_mem 348182640, quota 4294967296, logic_free_mem: 3255943824 ,allocate_mem(Mb) 332
+CudaMalloc devPtr: 0x7ffdb1a3d430 0x7ffdb1a3d228
+AddHash: key: 140727583757360 value: 190840832 size(MB): 182
+CudaMalloc allocated_mem: 539023472 allocate_bytesize: 190840832 total_quota: 4294967296 logic_free_mem: 3755943824
+GetHash key: 140278608429056 hash hit and miss
+CudaFree devPtr: 0x7f9528a00000 0x7ffdb1a3d9a8
+CudaFree allocated_mem: 539023472 reclaim_mem: 0 total_quota: 4294967296 logic_free_mem: 3755943824
+CheckAlloc bytesize 25165824, allocated_mem 539023472, quota 4294967296, logic_free_mem: 3230778000 ,allocate_mem(Mb) 514
+CudaMalloc devPtr: 0x7ffdb1a3d440 0x7ffdb1a3d238
+AddHash: key: 140727583757376 value: 25165824 size(MB): 24
+CudaMalloc allocated_mem: 564189296 allocate_bytesize: 25165824 total_quota: 4294967296 logic_free_mem: 3730778000
+CheckAlloc bytesize 157286400, allocated_mem 564189296, quota 4294967296, logic_free_mem: 3073491600 ,allocate_mem(Mb) 538
+CudaMalloc devPtr: 0x7ffdb1a3d430 0x7ffdb1a3d228
+AddHash: key: 140727583757360 value: 157286400 size(MB): 150
+CudaMalloc allocated_mem: 721475696 allocate_bytesize: 157286400 total_quota: 4294967296 logic_free_mem: 3573491600
+GetHash key: 140278616817664 hash hit and miss
+CudaFree devPtr: 0x7f9529200000 0x7ffdb1a3d9a8
+CudaFree allocated_mem: 721475696 reclaim_mem: 0 total_quota: 4294967296 logic_free_mem: 3573491600
+CheckAlloc bytesize 25165824, allocated_mem 721475696, quota 4294967296, logic_free_mem: 3048325776 ,allocate_mem(Mb) 688
+CudaMalloc devPtr: 0x7ffdb1a3d1f0 0x7ffdb1a3cfe8
+AddHash: key: 140727583756784 value: 25165824 size(MB): 24
+CudaMalloc allocated_mem: 746641520 allocate_bytesize: 25165824 total_quota: 4294967296 logic_free_mem: 3548325776
+CheckAlloc bytesize 25165824, allocated_mem 746641520, quota 4294967296, logic_free_mem: 3023159952 ,allocate_mem(Mb) 712
+CudaMalloc devPtr: 0x7ffdb1a3cd90 0x7ffdb1a3cb88
+AddHash: key: 140727583755664 value: 25165824 size(MB): 24
+CudaMalloc allocated_mem: 771807344 allocate_bytesize: 25165824 total_quota: 4294967296 logic_free_mem: 3523159952
+CheckAlloc bytesize 25165824, allocated_mem 771807344, quota 4294967296, logic_free_mem: 2997994128 ,allocate_mem(Mb) 736
+CudaMalloc devPtr: 0x7ffdb1a3cb40 0x7ffdb1a3c938
+AddHash: key: 140727583755072 value: 25165824 size(MB): 24
+CudaMalloc allocated_mem: 796973168 allocate_bytesize: 25165824 total_quota: 4294967296 logic_free_mem: 3497994128
+CheckAlloc bytesize 20971520, allocated_mem 796973168, quota 4294967296, logic_free_mem: 2977022608 ,allocate_mem(Mb) 760
+CudaMalloc devPtr: 0x7ffdb1a3d440 0x7ffdb1a3d238
+AddHash: key: 140727583757376 value: 20971520 size(MB): 20
+CudaMalloc allocated_mem: 817944688 allocate_bytesize: 20971520 total_quota: 4294967296 logic_free_mem: 3477022608
+CheckAlloc bytesize 197132288, allocated_mem 817944688, quota 4294967296, logic_free_mem: 2779890320 ,allocate_mem(Mb) 780
+CudaMalloc devPtr: 0x7ffdb1a3d430 0x7ffdb1a3d228
+AddHash: key: 140727583757360 value: 197132288 size(MB): 188
+CudaMalloc allocated_mem: 1015076976 allocate_bytesize: 197132288 total_quota: 4294967296 logic_free_mem: 3279890320
+GetHash key: 140278501474304 hash hit and miss
+CudaFree devPtr: 0x7f9522400000 0x7ffdb1a3d9a8
+CudaFree allocated_mem: 1015076976 reclaim_mem: 0 total_quota: 4294967296 logic_free_mem: 3279890320
+CheckAlloc bytesize 20971520, allocated_mem 1015076976, quota 4294967296, logic_free_mem: 2758918800 ,allocate_mem(Mb) 968
+CudaMalloc devPtr: 0x7ffdb1a3d440 0x7ffdb1a3d238
+AddHash: key: 140727583757376 value: 20971520 size(MB): 20
+CudaMalloc allocated_mem: 1036048496 allocate_bytesize: 20971520 total_quota: 4294967296 logic_free_mem: 3258918800
+CheckAlloc bytesize 25165824, allocated_mem 1036048496, quota 4294967296, logic_free_mem: 2733752976 ,allocate_mem(Mb) 988
+CudaMalloc devPtr: 0x7ffdb1a3d440 0x7ffdb1a3d238
+AddHash: key: 140727583757376 value: 25165824 size(MB): 24
+CudaMalloc allocated_mem: 1061214320 allocate_bytesize: 25165824 total_quota: 4294967296 logic_free_mem: 3233752976
+CheckAlloc bytesize 25165824, allocated_mem 1061214320, quota 4294967296, logic_free_mem: 2708587152 ,allocate_mem(Mb) 1012
+CudaMalloc devPtr: 0x7ffdb1a3d1f0 0x7ffdb1a3cfe8
+AddHash: key: 140727583756784 value: 25165824 size(MB): 24
+CudaMalloc allocated_mem: 1086380144 allocate_bytesize: 25165824 total_quota: 4294967296 logic_free_mem: 3208587152
+CheckAlloc bytesize 25165824, allocated_mem 1086380144, quota 4294967296, logic_free_mem: 2683421328 ,allocate_mem(Mb) 1036
+CudaMalloc devPtr: 0x7ffdb1a3e2c0 0x7ffdb1a3e0b8
+AddHash: key: 140727583761088 value: 25165824 size(MB): 24
+CudaMalloc allocated_mem: 1111545968 allocate_bytesize: 25165824 total_quota: 4294967296 logic_free_mem: 3183421328
+CheckAlloc bytesize 20971520, allocated_mem 1111545968, quota 4294967296, logic_free_mem: 2662449808 ,allocate_mem(Mb) 1060
+CudaMalloc devPtr: 0x7ffdb1a3d440 0x7ffdb1a3d238
+AddHash: key: 140727583757376 value: 20971520 size(MB): 20
+CudaMalloc allocated_mem: 1132517488 allocate_bytesize: 20971520 total_quota: 4294967296 logic_free_mem: 3162449808
+CheckAlloc bytesize 20971520, allocated_mem 1132517488, quota 4294967296, logic_free_mem: 2641478288 ,allocate_mem(Mb) 1080
+CudaMalloc devPtr: 0x7ffdb1a3d440 0x7ffdb1a3d238
+AddHash: key: 140727583757376 value: 20971520 size(MB): 20
+CudaMalloc allocated_mem: 1153489008 allocate_bytesize: 20971520 total_quota: 4294967296 logic_free_mem: 3141478288
+CheckAlloc bytesize 25165824, allocated_mem 1153489008, quota 4294967296, logic_free_mem: 2616312464 ,allocate_mem(Mb) 1100
+CudaMalloc devPtr: 0x7ffdb1a3d440 0x7ffdb1a3d238
+AddHash: key: 140727583757376 value: 25165824 size(MB): 24
+CudaMalloc allocated_mem: 1178654832 allocate_bytesize: 25165824 total_quota: 4294967296 logic_free_mem: 3116312464
+CheckAlloc bytesize 25165824, allocated_mem 1178654832, quota 4294967296, logic_free_mem: 2591146640 ,allocate_mem(Mb) 1124
+CudaMalloc devPtr: 0x7ffdb1a3d1f0 0x7ffdb1a3cfe8
+AddHash: key: 140727583756784 value: 25165824 size(MB): 24
+CudaMalloc allocated_mem: 1203820656 allocate_bytesize: 25165824 total_quota: 4294967296 logic_free_mem: 3091146640
+CheckAlloc bytesize 25165824, allocated_mem 1203820656, quota 4294967296, logic_free_mem: 2565980816 ,allocate_mem(Mb) 1148
+CudaMalloc devPtr: 0x7ffdb1a3e2c0 0x7ffdb1a3e0b8
+AddHash: key: 140727583761088 value: 25165824 size(MB): 24
+CudaMalloc allocated_mem: 1228986480 allocate_bytesize: 25165824 total_quota: 4294967296 logic_free_mem: 3065980816
+CheckAlloc bytesize 12582912, allocated_mem 1228986480, quota 4294967296, logic_free_mem: 2553397904 ,allocate_mem(Mb) 1172
+CudaMalloc devPtr: 0x7ffdb1a3d440 0x7ffdb1a3d238
+AddHash: key: 140727583757376 value: 12582912 size(MB): 12
+CudaMalloc allocated_mem: 1241569392 allocate_bytesize: 12582912 total_quota: 4294967296 logic_free_mem: 3053397904
+CheckAlloc bytesize 339738624, allocated_mem 1241569392, quota 4294967296, logic_free_mem: 2213659280 ,allocate_mem(Mb) 1184
+CudaMalloc devPtr: 0x7ffdb1a3d430 0x7ffdb1a3d228
+AddHash: key: 140727583757360 value: 339738624 size(MB): 324
+CudaMalloc allocated_mem: 1581308016 allocate_bytesize: 339738624 total_quota: 4294967296 logic_free_mem: 2713659280
+GetHash key: 140278144958464 hash hit and miss
+CudaFree devPtr: 0x7f950d000000 0x7ffdb1a3d9a8
+CudaFree allocated_mem: 1581308016 reclaim_mem: 0 total_quota: 4294967296 logic_free_mem: 2713659280
+CheckAlloc bytesize 12582912, allocated_mem 1581308016, quota 4294967296, logic_free_mem: 2201076368 ,allocate_mem(Mb) 1508
+CudaMalloc devPtr: 0x7ffdb1a3d1f0 0x7ffdb1a3cfe8
+AddHash: key: 140727583756784 value: 12582912 size(MB): 12
+CudaMalloc allocated_mem: 1593890928 allocate_bytesize: 12582912 total_quota: 4294967296 logic_free_mem: 2701076368
+CheckAlloc bytesize 12582912, allocated_mem 1593890928, quota 4294967296, logic_free_mem: 2188493456 ,allocate_mem(Mb) 1520
+CudaMalloc devPtr: 0x7ffdb1a3e2c0 0x7ffdb1a3e0b8
+AddHash: key: 140727583761088 value: 12582912 size(MB): 12
+CudaMalloc allocated_mem: 1606473840 allocate_bytesize: 12582912 total_quota: 4294967296 logic_free_mem: 2688493456
+CheckAlloc bytesize 125829120, allocated_mem 1606473840, quota 4294967296, logic_free_mem: 2062664336 ,allocate_mem(Mb) 1532
+CudaMalloc devPtr: 0x7ffdb1a3d430 0x7ffdb1a3d228
+AddHash: key: 140727583757360 value: 125829120 size(MB): 120
+CudaMalloc allocated_mem: 1732302960 allocate_bytesize: 125829120 total_quota: 4294967296 logic_free_mem: 2562664336
+GetHash key: 140278346285056 hash hit and miss
+CudaFree devPtr: 0x7f9519000000 0x7ffdb1a3d9a8
+CudaFree allocated_mem: 1732302960 reclaim_mem: 0 total_quota: 4294967296 logic_free_mem: 2562664336
+CheckAlloc bytesize 12582912, allocated_mem 1732302960, quota 4294967296, logic_free_mem: 2050081424 ,allocate_mem(Mb) 1652
+CudaMalloc devPtr: 0x7ffdb1a3d440 0x7ffdb1a3d238
+AddHash: key: 140727583757376 value: 12582912 size(MB): 12
+CudaMalloc allocated_mem: 1744885872 allocate_bytesize: 12582912 total_quota: 4294967296 logic_free_mem: 2550081424
+CheckAlloc bytesize 159383552, allocated_mem 1744885872, quota 4294967296, logic_free_mem: 1890697872 ,allocate_mem(Mb) 1664
+CudaMalloc devPtr: 0x7ffdb1a3d430 0x7ffdb1a3d228
+AddHash: key: 140727583757360 value: 159383552 size(MB): 152
+CudaMalloc allocated_mem: 1904269424 allocate_bytesize: 159383552 total_quota: 4294967296 logic_free_mem: 2390697872
+GetHash key: 140278300147712 hash hit and miss
+CudaFree devPtr: 0x7f9516400000 0x7ffdb1a3d9a8
+CudaFree allocated_mem: 1904269424 reclaim_mem: 0 total_quota: 4294967296 logic_free_mem: 2390697872
+CheckAlloc bytesize 12582912, allocated_mem 1904269424, quota 4294967296, logic_free_mem: 1878114960 ,allocate_mem(Mb) 1816
+CudaMalloc devPtr: 0x7ffdb1a3d1f0 0x7ffdb1a3cfe8
+AddHash: key: 140727583756784 value: 12582912 size(MB): 12
+CudaMalloc allocated_mem: 1916852336 allocate_bytesize: 12582912 total_quota: 4294967296 logic_free_mem: 2378114960
+CheckAlloc bytesize 12582912, allocated_mem 1916852336, quota 4294967296, logic_free_mem: 1865532048 ,allocate_mem(Mb) 1828
+CudaMalloc devPtr: 0x7ffdb1a3cd90 0x7ffdb1a3cb88
+AddHash: key: 140727583755664 value: 12582912 size(MB): 12
+CudaMalloc allocated_mem: 1929435248 allocate_bytesize: 12582912 total_quota: 4294967296 logic_free_mem: 2365532048
+CheckAlloc bytesize 652214272, allocated_mem 1929435248, quota 4294967296, logic_free_mem: 1213317776 ,allocate_mem(Mb) 1840
+CudaMalloc devPtr: 0x7ffdb1a3cd80 0x7ffdb1a3cb78
+AddHash: key: 140727583755648 value: 652214272 size(MB): 622
+CudaMalloc allocated_mem: 2581649520 allocate_bytesize: 652214272 total_quota: 4294967296 logic_free_mem: 1713317776
+GetHash key: 140277782151168 hash hit and miss
+CudaFree devPtr: 0x7f94f7600000 0x7ffdb1a3d2f8
+CudaFree allocated_mem: 2581649520 reclaim_mem: 0 total_quota: 4294967296 logic_free_mem: 1713317776
+CheckAlloc bytesize 12582912, allocated_mem 2581649520, quota 4294967296, logic_free_mem: 1200734864 ,allocate_mem(Mb) 2462
+CudaMalloc devPtr: 0x7ffdb1a3cb40 0x7ffdb1a3c938
+AddHash: key: 140727583755072 value: 12582912 size(MB): 12
+CudaMalloc allocated_mem: 2594232432 allocate_bytesize: 12582912 total_quota: 4294967296 logic_free_mem: 1700734864
+CheckAlloc bytesize 20971520, allocated_mem 2594232432, quota 4294967296, logic_free_mem: 1179763344 ,allocate_mem(Mb) 2474
+CudaMalloc devPtr: 0x7ffdb1a3d440 0x7ffdb1a3d238
+AddHash: key: 140727583757376 value: 20971520 size(MB): 20
+CudaMalloc allocated_mem: 2615203952 allocate_bytesize: 20971520 total_quota: 4294967296 logic_free_mem: 1679763344
+CheckAlloc bytesize 180355072, allocated_mem 2615203952, quota 4294967296, logic_free_mem: 999408272 ,allocate_mem(Mb) 2494
+CudaMalloc devPtr: 0x7ffdb1a3d430 0x7ffdb1a3d228
+AddHash: key: 140727583757360 value: 180355072 size(MB): 172
+CudaMalloc allocated_mem: 2795559024 allocate_bytesize: 180355072 total_quota: 4294967296 logic_free_mem: 1499408272
+GetHash key: 140278220455936 hash hit and miss
+CudaFree devPtr: 0x7f9511800000 0x7ffdb1a3d9a8
+CudaFree allocated_mem: 2795559024 reclaim_mem: 0 total_quota: 4294967296 logic_free_mem: 1499408272
+CheckAlloc bytesize 171966464, allocated_mem 2795559024, quota 4294967296, logic_free_mem: 827441808 ,allocate_mem(Mb) 2666
+CudaMalloc devPtr: 0x7ffdb1a3d430 0x7ffdb1a3d228
+AddHash: key: 140727583757360 value: 171966464 size(MB): 164
+CudaMalloc allocated_mem: 2967525488 allocate_bytesize: 171966464 total_quota: 4294967296 logic_free_mem: 1327441808
+GetHash key: 140278228844544 hash hit and miss
+CudaFree devPtr: 0x7f9512000000 0x7ffdb1a3d9a8
+CudaFree allocated_mem: 2967525488 reclaim_mem: 0 total_quota: 4294967296 logic_free_mem: 1327441808
+CheckAlloc bytesize 23068672, allocated_mem 2967525488, quota 4294967296, logic_free_mem: 804373136 ,allocate_mem(Mb) 2830
+CudaMalloc devPtr: 0x7ffdb1a3d5f0 0x7ffdb1a3d3e8
+AddHash: key: 140727583757808 value: 23068672 size(MB): 22
+CudaMalloc allocated_mem: 2990594160 allocate_bytesize: 23068672 total_quota: 4294967296 logic_free_mem: 1304373136
+CheckAlloc bytesize 12582912, allocated_mem 2990594160, quota 4294967296, logic_free_mem: 791790224 ,allocate_mem(Mb) 2852
+CudaMalloc devPtr: 0x7ffdb1a3d1f0 0x7ffdb1a3cfe8
+AddHash: key: 140727583756784 value: 12582912 size(MB): 12
+CudaMalloc allocated_mem: 3003177072 allocate_bytesize: 12582912 total_quota: 4294967296 logic_free_mem: 1291790224
+CheckAlloc bytesize 12582912, allocated_mem 3003177072, quota 4294967296, logic_free_mem: 779207312 ,allocate_mem(Mb) 2864
+CudaMalloc devPtr: 0x7ffdb1a3e2c0 0x7ffdb1a3e0b8
+AddHash: key: 140727583761088 value: 12582912 size(MB): 12
+CudaMalloc allocated_mem: 3015759984 allocate_bytesize: 12582912 total_quota: 4294967296 logic_free_mem: 1279207312
+CheckAlloc bytesize 20971520, allocated_mem 3015759984, quota 4294967296, logic_free_mem: 758235792 ,allocate_mem(Mb) 2876
+CudaMalloc devPtr: 0x7ffdb1a3d440 0x7ffdb1a3d238
+AddHash: key: 140727583757376 value: 20971520 size(MB): 20
+CudaMalloc allocated_mem: 3036731504 allocate_bytesize: 20971520 total_quota: 4294967296 logic_free_mem: 1258235792
+CheckAlloc bytesize 23068672, allocated_mem 3036731504, quota 4294967296, logic_free_mem: 735167120 ,allocate_mem(Mb) 2896
+CudaMalloc devPtr: 0x7ffdb1a3d5f0 0x7ffdb1a3d3e8
+AddHash: key: 140727583757808 value: 23068672 size(MB): 22
+CudaMalloc allocated_mem: 3059800176 allocate_bytesize: 23068672 total_quota: 4294967296 logic_free_mem: 1235167120
+CheckAlloc bytesize 12582912, allocated_mem 3059800176, quota 4294967296, logic_free_mem: 722584208 ,allocate_mem(Mb) 2918
+CudaMalloc devPtr: 0x7ffdb1a3d1f0 0x7ffdb1a3cfe8
+AddHash: key: 140727583756784 value: 12582912 size(MB): 12
+CudaMalloc allocated_mem: 3072383088 allocate_bytesize: 12582912 total_quota: 4294967296 logic_free_mem: 1222584208
+CheckAlloc bytesize 12582912, allocated_mem 3072383088, quota 4294967296, logic_free_mem: 710001296 ,allocate_mem(Mb) 2930
+CudaMalloc devPtr: 0x7ffdb1a3e2c0 0x7ffdb1a3e0b8
+AddHash: key: 140727583761088 value: 12582912 size(MB): 12
+CudaMalloc allocated_mem: 3084966000 allocate_bytesize: 12582912 total_quota: 4294967296 logic_free_mem: 1210001296
+CheckAlloc bytesize 23068672, allocated_mem 3084966000, quota 4294967296, logic_free_mem: 686932624 ,allocate_mem(Mb) 2942
+CudaMalloc devPtr: 0x7ffdb1a3d5f0 0x7ffdb1a3d3e8
+AddHash: key: 140727583757808 value: 23068672 size(MB): 22
+CudaMalloc allocated_mem: 3108034672 allocate_bytesize: 23068672 total_quota: 4294967296 logic_free_mem: 1186932624
+CheckAlloc bytesize 12582912, allocated_mem 3108034672, quota 4294967296, logic_free_mem: 674349712 ,allocate_mem(Mb) 2964
+CudaMalloc devPtr: 0x7ffdb1a3d1f0 0x7ffdb1a3cfe8
+AddHash: key: 140727583756784 value: 12582912 size(MB): 12
+CudaMalloc allocated_mem: 3120617584 allocate_bytesize: 12582912 total_quota: 4294967296 logic_free_mem: 1174349712
+CheckAlloc bytesize 12582912, allocated_mem 3120617584, quota 4294967296, logic_free_mem: 661766800 ,allocate_mem(Mb) 2976
+CudaMalloc devPtr: 0x7ffdb1a3e2c0 0x7ffdb1a3e0b8
+AddHash: key: 140727583761088 value: 12582912 size(MB): 12
+CudaMalloc allocated_mem: 3133200496 allocate_bytesize: 12582912 total_quota: 4294967296 logic_free_mem: 1161766800
+CheckAlloc bytesize 331350016, allocated_mem 3133200496, quota 4294967296, logic_free_mem: 330416784 ,allocate_mem(Mb) 2988
+CudaMalloc devPtr: 0x7ffdb1a3d430 0x7ffdb1a3d228
+AddHash: key: 140727583757360 value: 331350016 size(MB): 316
+CudaMalloc allocated_mem: 3464550512 allocate_bytesize: 331350016 total_quota: 4294967296 logic_free_mem: 830416784
+GetHash key: 140277903785984 hash hit and miss
+CudaFree devPtr: 0x7f94fea00000 0x7ffdb1a3d9a8
+CudaFree allocated_mem: 3464550512 reclaim_mem: 0 total_quota: 4294967296 logic_free_mem: 830416784
+CheckAlloc bytesize 20971520, allocated_mem 3464550512, quota 4294967296, logic_free_mem: 309445264 ,allocate_mem(Mb) 3304
+CudaMalloc devPtr: 0x7ffdb1a3d1f0 0x7ffdb1a3cfe8
+AddHash: key: 140727583756784 value: 20971520 size(MB): 20
+CudaMalloc allocated_mem: 3485522032 allocate_bytesize: 20971520 total_quota: 4294967296 logic_free_mem: 809445264
+CheckAlloc bytesize 339738624, allocated_mem 3485522032, quota 4294967296, logic_free_mem: 18446744073679258256 ,allocate_mem(Mb) 3324
+CheckAlloc bytesize 339738624, allocated_mem 3485522032, quota 4294967296, logic_free_mem: 18446744073679258256 ,allocate_mem(Mb) 3324
+RuntimeError: CUDA out of memory. Tried to allocate 324.00 MiB (GPU 0; 10.92 GiB total capacity; 806.21 MiB already allocated; 9.52 GiB free; 29.79 MiB cached)

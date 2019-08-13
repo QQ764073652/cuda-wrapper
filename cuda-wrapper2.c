@@ -53,11 +53,11 @@ void getCurrentTime(char *buff) {
 }
 
 void addHash(unsigned long long key,size_t value) {
-    int temp=key >> 19;
+    int temp=key >> 51;
     if(allocsize[temp].key==0) {
         allocsize[temp].key=key;
         allocsize[temp].value=value;
-	    //printf("allocsize %lld %zu\n", key, value);
+        //printf("allocsize %lld %zu\n", key, value);
     }
     else if(allocsize[temp].key==key) {
         allocsize[temp].value=value;
@@ -85,14 +85,14 @@ size_t getHash(unsigned long long key) {
     int temp=key%mod;
     struct HashArray *p=&allocsize[temp];
     if (p == NULL) {
-	    printf("getHash miss\n");
+        printf("getHash miss\n");
         getCurrentTime(timebuf);
         printf("Time: %s  key: %lld \n", timebuf, key );
-    	return 0;
+        return 0;
     }
     //printf("pkey: %lld\n", p->key);
     while(p->key!=key&&p->next!=NULL) {
-	    p=p->next;
+        p=p->next;
     }
     if (p->key == key) {
         printf("getHash hit\n");
@@ -135,14 +135,14 @@ void init_func() {
 
     if(open_flag == 0 && handle == NULL) {
         //char *error;
-    	handle = dlopen (LIB_STRING, RTLD_LAZY);
-    	if (!handle) {
-       	    fprintf (stderr, "%s\n", dlerror());
-       	    exit(1);
-    	}
+        handle = dlopen (LIB_STRING, RTLD_LAZY);
+        if (!handle) {
+            fprintf (stderr, "%s\n", dlerror());
+            exit(1);
+        }
 
-	    open_flag = 1;
-    	dlerror();
+        open_flag = 1;
+        dlerror();
     }
     pthread_mutex_init(&mem_cnt_lock, NULL);
     set_quota();
@@ -178,13 +178,7 @@ CUresult cuInit(unsigned int Flags) {
     return r;
 }
 
-/**
- * 修改total为total_quota
- * 修改free>total_quota时为total_quota
- * @param free
- * @param total
- * @return
- */
+
 CUresult cuMemGetInfo_v2(size_t *free, size_t *total) {
     before_func();
     CUresult (*fakecuMemGetInfo_v2)(size_t *, size_t *);
@@ -196,11 +190,9 @@ CUresult cuMemGetInfo_v2(size_t *free, size_t *total) {
     CUresult r;
     r = checkCudaErrors((*fakecuMemGetInfo_v2)(free, total));
     //TODO: change free and total to proper value
-    if(*free > total_quota){
-        *free = total_quota;
-    }
-    *total = total_quota;
-    printf("cumemgetinfo: free : %zu, total : %zu\n", *free, *total);
+    //*free =  *free / 2;
+    //*total = *total / 2;
+    //printf("cumemgetinfo: free : %zu, total : %zu\n", *free, *total);
     post_func();
     return r;
 }
