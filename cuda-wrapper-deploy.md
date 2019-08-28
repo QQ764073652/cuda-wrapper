@@ -19,16 +19,27 @@ cp /usr/local/cuda-9.0/targets/x86_64-linux/lib/libcudart.so.9.0.176 /usr/local/
 # cu100 
 (base) amax@amax:~$ ls -lrth /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcudart.so.10.1
 lrwxrwxrwx 1 root root 21 Aug  1 11:48 /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcudart.so.10.1 -> libcudart.so.10.1.168
-cp /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcudart.so.10.1.168 /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcudart.so
+cp /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcudart.so.10.1.168 /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcudatr.so
+
+# 修改char LIB_STRING_t[] 变量为复制路径
 ```
 # run
-> WRAPPER_MAX_MEMORY 单位：byte
+> WRAPPER_MAX_MEMORY 单位：B
 ```bash
 export LD_PRELOAD=libcuda-wrapper1.so
-export WRAPPER_MAX_MEMORY=42949672960 
+export WRAPPER_MAX_MEMORY=4294967296 
 python tf-mnist.py
 
 export LD_PRELOAD=libcuda-wrapper2.so
-export WRAPPER_MAX_MEMORY=42949672960 
+export WRAPPER_MAX_MEMORY=4294967296
 python pytorch-mnist.py
+```
+
+# dryrun
+```bash
+# cu90 
+cp /usr/local/cuda-9.0/targets/x86_64-linux/lib/libcudart.so.9.0.176 /usr/local/cuda-9.0/targets/x86_64-linux/lib/libcudatr.so 
+export LD_PRELOAD=lib/libcuda.cu90.so
+export WRAPPER_MAX_MEMORY=42949672960 
+python tf-mnist.py
 ```
