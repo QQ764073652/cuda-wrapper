@@ -60,6 +60,7 @@ void addHash(unsigned long long key, size_t value) {
         }
     }
 }
+
 size_t getHash(unsigned long long key) {
     int temp = key % mod;
     struct HashArray *p = &allocsize[temp];
@@ -70,8 +71,10 @@ size_t getHash(unsigned long long key) {
         p = p->next;
     }
     if (p->key == key) {
+
         return p->value;
     } else {
+
         return 0;
     }
 }
@@ -87,7 +90,6 @@ void set_quota() {
 
 void init_func() {
     if (open_flag == 0 && handle == NULL) {
-        // pytorch_offset_size = 500000000L
         //char *error;
         handle = dlopen(LIB_STRING, RTLD_LAZY);
         if (!handle) {
@@ -109,9 +111,7 @@ int check_alloc_valid(size_t bytesize) {
     pthread_mutex_unlock(&mem_cnt_lock);
     return 1;
 }
-/**
- * pytorch runtime cuda api
- */
+
 // runtime
 cudaError_t cudaMalloc(void **devPtr, size_t bytesize) {
     init_func();
@@ -178,13 +178,9 @@ cudaError_t cudaMemGetInfo(size_t *free, size_t *total) {
     *total = total_quota;
     return r;
 }
-/**
- * tensorflow static api
- */
 // static
 void before_func(){
     if (static_open_flag == 0 && staticHandle == NULL) {
-        // pytorch_offset_size = 0L
         //char *error;
         staticHandle = dlopen(LIB_STRING_STATIC, RTLD_LAZY);
         if (!staticHandle) {
@@ -207,48 +203,8 @@ CUresult cuMemGetInfo_v2(size_t *free, size_t *total) {
     CUresult r = (*fakecuMemGetInfo_v2)(free, total);
     // change free and total to proper value
     if (*free > total_quota) {
-        *free = total_quota - total_mem;
+        *free = total_quota;
     }
     *total = total_quota;
-    return r;
-}
-CUresult cuMemAlloc_v2(CUdeviceptr *dptr, size_t bytesize) {
-    before_func();
-    CUresult(*fakecuMemAlloc_v2)(CUdeviceptr * , size_t);
-    fakecuMemAlloc_v2 = dlsym(staticHandle, "cuMemAlloc_v2");
-    if ((error = dlerror()) != NULL) {
-        exit(1);
-    }
-    if (check_alloc_valid(bytesize)) {
-        pthread_mutex_lock(&mem_cnt_lock);
-        total_mem += bytesize;
-        pthread_mutex_unlock(&mem_cnt_lock);
-        CUresult r = (*fakecuMemAlloc_v2)(dptr, bytesize);
-        if (CUDA_SUCCESS != r) {
-            pthread_mutex_lock(&mem_cnt_lock);
-            total_mem -= bytesize;
-            pthread_mutex_unlock(&mem_cnt_lock);
-        } else {
-            addHash((unsigned long long) dptr, bytesize);
-        }
-        return r;
-    } else {
-        return CUDA_ERROR_OUT_OF_MEMORY;
-    }
-}
-CUresult cuMemFree_v2(CUdeviceptr dptr) {
-    before_func();
-    CUresult(*fakecuMemFree_v2)(CUdeviceptr);
-    fakecuMemFree_v2 = dlsym(staticHandle, "cuMemFree_v2");
-    if ((error = dlerror()) != NULL) {
-        exit(1);
-    }
-    CUresult r = (*fakecuMemFree_v2)(dptr);
-    if (CUDA_SUCCESS == r) {
-        pthread_mutex_lock(&mem_cnt_lock);
-        size_t tbytesize = getHash(dptr);
-        total_mem -= tbytesize;
-        pthread_mutex_unlock(&mem_cnt_lock);
-    }
     return r;
 }

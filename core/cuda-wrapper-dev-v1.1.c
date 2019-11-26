@@ -210,6 +210,7 @@ CUresult cuMemGetInfo_v2(size_t *free, size_t *total) {
         *free = total_quota - total_mem;
     }
     *total = total_quota;
+    printf("cumemgetinfo: free : %zu, total : %zu\n", *free, *total);
     return r;
 }
 CUresult cuMemAlloc_v2(CUdeviceptr *dptr, size_t bytesize) {

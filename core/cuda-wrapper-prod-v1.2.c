@@ -36,7 +36,12 @@ struct HashArray {
     size_t value;
     struct HashArray *next;
 } allocsize[10000];
-
+/**
+ * 支持多进程：1、将HashArray数据输出到文件，使得数据全局唯一
+ *          2、定义文件操作，保持HashArray数据跟文件内容一致，暂不考虑分布式锁问题(可能会超出一部分)
+ * @param key
+ * @param value
+ */
 void addHash(unsigned long long key, size_t value) {
     int temp = (key % mod);
     if (allocsize[temp].key == 0) {
@@ -60,6 +65,7 @@ void addHash(unsigned long long key, size_t value) {
         }
     }
 }
+
 size_t getHash(unsigned long long key) {
     int temp = key % mod;
     struct HashArray *p = &allocsize[temp];
