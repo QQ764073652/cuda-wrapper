@@ -52,7 +52,7 @@ desigin：多进程数据同步，进程锁，通过互斥量或文件锁解决
 ```
 ### Related Project
 [pod-gpu-metrics-exporter](https://github.com/ruanxingbaozi/pod-gpu-metrics-exporter)
-[k8s-device-plugin](https://github.com/yzs981130/k8s-device-plugin)
+[k8s-device-plugin](https://github.com/ruanxingbaozi/k8s-device-plugin)
 
 ### Optional Project
 [gpushare-device-plugin](https://github.com/AliyunContainerService/gpushare-device-plugin)
