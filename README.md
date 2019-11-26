@@ -54,6 +54,6 @@ desigin：多进程数据同步，进程锁，通过互斥量或文件锁解决
 [pod-gpu-metrics-exporter](https://github.com/ruanxingbaozi/pod-gpu-metrics-exporter)
 [k8s-device-plugin](https://github.com/yzs981130/k8s-device-plugin)
 
-### Optional
+### Optional Project
 [gpushare-device-plugin](https://github.com/AliyunContainerService/gpushare-device-plugin)
 [gpushare-scheduler-extender](https://github.com/AliyunContainerService/gpushare-scheduler-extender)
