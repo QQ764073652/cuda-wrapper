@@ -1,0 +1,47 @@
+Using TensorFlow backend.
+2019-07-18 03:46:46.412311: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+set_quota: set total_quota: 4217928960init!!!
+cumemgetinfo: free : 11552686080, total : 11721506816
+2019-07-18 03:46:46.617292: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2019-07-18 03:46:46.619596: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties:
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:03:00.0
+totalMemory: 10.92GiB freeMemory: 10.76GiB
+2019-07-18 03:46:46.619689: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2019-07-18 03:46:46.945576: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-07-18 03:46:46.945749: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0
+2019-07-18 03:46:46.945771: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N
+cumemgetinfo: free : 11493965824, total : 11721506816
+2019-07-18 03:46:46.946457: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5589 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:03:00.0, compute capability: 6.1)
+lock mem in check_alloc_valid
+alloc 5860753408 failed, total_mem 0, quota 4217928960
+unlock mem in check_alloc_valid
+2019-07-18 03:46:46.947132: E tensorflow/stream_executor/cuda/cuda_driver.cc:936] failed to allocate 5.46G (5860753408 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY
+lock mem in check_alloc_valid
+alloc 5274677760 failed, total_mem 0, quota 4217928960
+unlock mem in check_alloc_valid
+2019-07-18 03:46:46.947183: E tensorflow/stream_executor/cuda/cuda_driver.cc:936] failed to allocate 4.91G (5274677760 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY
+lock mem in check_alloc_valid
+alloc 4747209728 failed, total_mem 0, quota 4217928960
+unlock mem in check_alloc_valid
+2019-07-18 03:46:46.947215: E tensorflow/stream_executor/cuda/cuda_driver.cc:936] failed to allocate 4.42G (4747209728 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY
+lock mem in check_alloc_valid
+alloc 4272488704 failed, total_mem 0, quota 4217928960
+unlock mem in check_alloc_valid
+2019-07-18 03:46:46.947246: E tensorflow/stream_executor/cuda/cuda_driver.cc:936] failed to allocate 3.98G (4272488704 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY
+lock mem in check_alloc_valid
+unlock mem in check
+lock mem in cumemalloc
+unlock mem in cumemalloc
+allocsize 140720588858744 3845239808
+cumemalloc: hash insert with bytesize 3845239808
+pkey: 140720588858744
+hit
+cumemalloc: hash insert with bytesize 3845239808
+Epoch 1/10
+2019-07-18 03:46:47.771103: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2019-07-18 03:46:47.771204: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-07-18 03:46:47.771225: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0
+2019-07-18 03:46:47.771238: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N
+cumemgetinfo: free : 7647789056, total : 11721506816
+2019-07-18 03:46:47.771724: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5589 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:03:00.0, compute capability: 6.1)

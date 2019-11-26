@@ -53,23 +53,23 @@ void getCurrentTime(char *buff) {
 }
 
 void addHash(unsigned long long key,size_t value) {
-    int temp=key >> 19;
+    int temp=key >> 51;
     if(allocsize[temp].key==0) {
         allocsize[temp].key=key;
         allocsize[temp].value=value;
-	    //printf("allocsize %lld %zu\n", key, value);
-    } 
+        //printf("allocsize %lld %zu\n", key, value);
+    }
     else if(allocsize[temp].key==key) {
-        allocsize[temp].value=value;     
-    } 
+        allocsize[temp].value=value;
+    }
     else {
-        struct HashArray *p=&allocsize[temp]; 		
-        while(p->key!=key&&p->next!=NULL) {  
+        struct HashArray *p=&allocsize[temp];
+        while(p->key!=key&&p->next!=NULL) {
             p=p->next;
         }
         if(p->key==key) {
             p->value=value;
-        } 
+        }
         else {
             p->next=(struct HashArray*)malloc(sizeof(struct HashArray));
             p=p->next;
@@ -79,21 +79,21 @@ void addHash(unsigned long long key,size_t value) {
         }
     }
     getCurrentTime(timebuf);
-    printf("addHash\nTime: %s  addHash: key: %lld value: %zu\n", timebuf, key, value);  
+    printf("addHash\nTime: %s  addHash: key: %lld value: %zu\n", timebuf, key, value);
 }
 size_t getHash(unsigned long long key) {
     int temp=key%mod;
     struct HashArray *p=&allocsize[temp];
     if (p == NULL) {
-	    printf("getHash miss\n");
+        printf("getHash miss\n");
         getCurrentTime(timebuf);
         printf("Time: %s  key: %lld \n", timebuf, key );
-    	return 0;
+        return 0;
     }
     //printf("pkey: %lld\n", p->key);
     while(p->key!=key&&p->next!=NULL) {
-	    p=p->next;
-    }		
+        p=p->next;
+    }
     if (p->key == key) {
         printf("getHash hit\n");
         getCurrentTime(timebuf);
@@ -103,7 +103,7 @@ size_t getHash(unsigned long long key) {
     else {
         printf("hash hit and miss\n");
         getCurrentTime(timebuf);
-        printf("Time: %s  key: %lld \n", timebuf, key );        
+        printf("Time: %s  key: %lld \n", timebuf, key );
         return 0;
     }
 }
@@ -129,20 +129,20 @@ void init_func() {
     }
 
     if (dup2(fd, 1) == -1) {
-        perror("dup2 failed"); 
+        perror("dup2 failed");
         exit(1);
     }
-    
+
     if(open_flag == 0 && handle == NULL) {
         //char *error;
-    	handle = dlopen (LIB_STRING, RTLD_LAZY);
-    	if (!handle) {
-       	    fprintf (stderr, "%s\n", dlerror());
-       	    exit(1);
-    	}
+        handle = dlopen (LIB_STRING, RTLD_LAZY);
+        if (!handle) {
+            fprintf (stderr, "%s\n", dlerror());
+            exit(1);
+        }
 
-	    open_flag = 1;
-    	dlerror();
+        open_flag = 1;
+        dlerror();
     }
     pthread_mutex_init(&mem_cnt_lock, NULL);
     set_quota();
@@ -152,7 +152,7 @@ void init_func() {
 }
 
 void before_func() {
-	
+
 }
 
 
@@ -199,7 +199,7 @@ CUresult cuMemGetInfo_v2(size_t *free, size_t *total) {
 
 int check_alloc_valid(size_t bytesize) {
     //printf("lock mem in check_alloc_valid\n");
-    pthread_mutex_lock(&mem_cnt_lock);	
+    pthread_mutex_lock(&mem_cnt_lock);
     if(total_mem + bytesize > total_quota) {
         fprintf (stderr, "alloc %zu failed, total_mem %zu, quota %zu\n", bytesize, total_mem,  total_quota);
         //printf("unlock mem in check_alloc_valid\n");
@@ -233,11 +233,11 @@ CUresult cuMemAlloc_v2(CUdeviceptr* dptr, size_t bytesize) {
         if(CUDA_SUCCESS != r) {
             //printf("lock if r != CUDA_SUCCESS\n");
             pthread_mutex_lock(&mem_cnt_lock);
-            total_mem -= bytesize;                  
+            total_mem -= bytesize;
             pthread_mutex_unlock(&mem_cnt_lock);
             //printf("unlock if r != CUDA_SUCCESS\n ");
         }
-        else {			
+        else {
             addHash((unsigned long long)dptr,bytesize);
             //TODO: assert
             //printf("cumemalloc: hash insert with bytesize %zu\n", bytesize);

@@ -37,4 +37,23 @@ LD_PRELOAD=/path/to/libcuda2.so python test.py
 ```bash
 LD_PRELOAD=/path/to/libcuda2.so WRAPPER_MAX_MEMORY=4217928960 python test.py
 
+LD_PRELOAD=/cuda-wrapper/release/libcuda2.so.9.2 WRAPPER_MAX_MEMORY=4217928960 python mnist.py
+LD_PRELOAD=/cuda-wrapper/release/libcuda3.so.9.2 WRAPPER_MAX_MEMORY=4217928960 python cifar10-pytorch.py
+
 ```
+
+### deploy
+[cuda-wrapper-deploy.md](./cuda-wrapper-deploy.md)
+
+### TODO
+```
+1、对于多进程的支持
+desigin：多进程数据同步，进程锁，通过互斥量或文件锁解决
+```
+### Related Project
+[pod-gpu-metrics-exporter](https://github.com/ruanxingbaozi/pod-gpu-metrics-exporter)
+[k8s-device-plugin](https://github.com/yzs981130/k8s-device-plugin)
+
+### Optional Project
+[gpushare-device-plugin](https://github.com/AliyunContainerService/gpushare-device-plugin)
+[gpushare-scheduler-extender](https://github.com/AliyunContainerService/gpushare-scheduler-extender)

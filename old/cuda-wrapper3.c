@@ -16,6 +16,7 @@
 unsigned long long mod = 9973L;
 
 static const char LIB_STRING[] = "libcudart.so";
+static const char LIB_STRING_t[] = "/usr/local/cuda-10.1/targets/x86_64-linux/lib/libcudatr.so";
 static const char CONFIG_STRING[] = "WRAPPER_MAX_MEMORY";
 static const char LOG_FILENAME[] = "/tmp/wrapper-log";
 
@@ -38,31 +39,31 @@ struct HashArray
     struct HashArray* next;
 }allocsize[10000];
 
-void getCurrentTime(char *buff) {
+void getCurrentTime() {
     struct tm *sTm;
     time_t now = time (0);
     sTm = gmtime (&now);
-    strftime (buff, sizeof(buff), "%Y-%m-%d %H:%M:%S", sTm);
+    strftime (timebuf, sizeof(timebuf), "%Y-%m-%d %H:%M:%S", sTm);
 }
 
 void addHash(unsigned long long key,size_t value) {
-    int temp=key >> 19;
+    int temp=(key >> 51);
+    //printf("addHash:%d\n",temp);
     if(allocsize[temp].key==0) {
         allocsize[temp].key=key;
         allocsize[temp].value=value;
-        //printf("allocsize %lld %zu\n", key, value);
-    } 
+    }
     else if(allocsize[temp].key==key) {
-        allocsize[temp].value=value;     
-    } 
+        allocsize[temp].value=value;
+    }
     else {
-        struct HashArray *p=&allocsize[temp];       
-        while(p->key!=key&&p->next!=NULL) {  
+        struct HashArray *p=&allocsize[temp];
+        while(p->key!=key&&p->next!=NULL) {
             p=p->next;
         }
         if(p->key==key) {
             p->value=value;
-        } 
+        }
         else {
             p->next=(struct HashArray*)malloc(sizeof(struct HashArray));
             p=p->next;
@@ -71,32 +72,33 @@ void addHash(unsigned long long key,size_t value) {
             p->next=NULL;
         }
     }
-    getCurrentTime(timebuf);
-    printf("addHash\nTime: %s  addHash: key: %lld value: %zu\n", timebuf, key, value);  
+    getCurrentTime();
+    printf("addHash\nTime: %s  addHash: key: %lld value: %zu\n", timebuf, key, value);
 }
 size_t getHash(unsigned long long key) {
     int temp=key%mod;
     struct HashArray *p=&allocsize[temp];
+    //printf("%lld %d\n",key,temp);
     if (p == NULL) {
         printf("getHash miss\n");
-        getCurrentTime(timebuf);
+        getCurrentTime();
         printf("Time: %s  key: %lld \n", timebuf, key );
         return 0;
     }
     //printf("pkey: %lld\n", p->key);
     while(p->key!=key&&p->next!=NULL) {
         p=p->next;
-    }       
+    }
     if (p->key == key) {
         printf("getHash hit\n");
-        getCurrentTime(timebuf);
+        getCurrentTime();
         printf("Time: %s  key: %lld value: %zu \n", timebuf, key ,p->value);
         return p->value;
     }
     else {
         printf("hash hit and miss\n");
-        getCurrentTime(timebuf);
-        printf("Time: %s  key: %lld \n", timebuf, key );        
+        getCurrentTime();
+        printf("Time: %s  key: %lld \n", timebuf, key );
         return 0;
     }
 }
@@ -133,49 +135,49 @@ void init_func() {
         }
 
         if (dup2(fd, 1) == -1) {
-            perror("dup2 failed"); 
+            perror("dup2 failed");
             exit(1);
         }
 
         //char *error;
-    	handle = dlopen (LIB_STRING, RTLD_LAZY);
-    	if (!handle) {
-       	    fprintf (stderr, "%s\n", dlerror());
-       	    exit(1);
-    	}
-	    open_flag = 1;
-    	dlerror();
-    	pthread_mutex_init(&mem_cnt_lock, NULL);
-	    set_quota();
-	    //printf("Init:\n");
+        handle = dlopen (LIB_STRING, RTLD_LAZY);
+        if (!handle) {
+            fprintf (stderr, "%s\n", dlerror());
+            exit(1);
+        }
+        open_flag = 1;
+        dlerror();
+        pthread_mutex_init(&mem_cnt_lock, NULL);
+        set_quota();
+        //printf("Init:\n");
         //nvmlresult = nvmlInit();
-	    //if (NVML_SUCCESS != nvmlresult)
-	    //{
-      	//     printf("Failed to initialize NVML: %s\n", nvmlErrorString(nvmlresult));
+        //if (NVML_SUCCESS != nvmlresult)
+        //{
+        //     printf("Failed to initialize NVML: %s\n", nvmlErrorString(nvmlresult));
 
-	    //}
-	    //nvmlresult = nvmlDeviceGetHandleByIndex(0, &nvmldevice);
+        //}
+        //nvmlresult = nvmlDeviceGetHandleByIndex(0, &nvmldevice);
         //if (NVML_SUCCESS != nvmlresult)
         //{
         //     printf("Failed to get handle for device: %s\n",  nvmlErrorString(nvmlresult));
         //}
-	    //nvml_memquery();
-	    //pid_t procpid = getpid();
-	    //printf("PID:%d\n", procpid);
-	    //procpid = getppid();
-	    //printf("PPID:%d\n", procpid);
-	    //unsigned int infoCount;
+        //nvml_memquery();
+        //pid_t procpid = getpid();
+        //printf("PID:%d\n", procpid);
+        //procpid = getppid();
+        //printf("PPID:%d\n", procpid);
+        //unsigned int infoCount;
         //nvmlProcessInfo_t infos[999];
         //nvmlresult = nvmlDeviceGetComputeRunningProcesses(nvmldevice, &infoCount, infos);
-	    //int i;
-	    //printf("infocount:%d\n", infoCount);
-	    //for (i = 0; i < infoCount; i++)
+        //int i;
+        //printf("infocount:%d\n", infoCount);
+        //for (i = 0; i < infoCount; i++)
         //{
-            // printf("PID: %d ,usedGPUMem:%lld bytes   ", infos[i].pid, infos[i].usedGpuMemory);
-	    //}
-	    
+        // printf("PID: %d ,usedGPUMem:%lld bytes   ", infos[i].pid, infos[i].usedGpuMemory);
+        //}
+
         printf("Init!\n");
-        getCurrentTime(timebuf);
+        getCurrentTime();
         printf("Time: %s  total_quota: %zu\n", timebuf, total_quota);
 
     }
@@ -183,13 +185,13 @@ void init_func() {
 
 int check_alloc_valid(size_t bytesize) {
     //printf("lock mem in check_alloc_valid\n");
-    pthread_mutex_lock(&mem_cnt_lock);	
+    pthread_mutex_lock(&mem_cnt_lock);
     //printf("&&&&&&&&&&&&total_mem %zu\n", total_mem);
     if(total_mem + bytesize + pytorch_offset_size  > total_quota) {
         fprintf (stderr, "alloc %zu failed, total_mem %zu, quota %zu\n", bytesize, total_mem,  total_quota);
-	    //printf("unlock mem in check_alloc_valid:1\n");
-	    pthread_mutex_unlock(&mem_cnt_lock);
-	    return 0;
+        //printf("unlock mem in check_alloc_valid:1\n");
+        pthread_mutex_unlock(&mem_cnt_lock);
+        return 0;
     }
     //printf("unlock mem in check\n");
     pthread_mutex_unlock(&mem_cnt_lock);
@@ -198,99 +200,107 @@ int check_alloc_valid(size_t bytesize) {
 
 
 cudaError_t cudaMalloc( void** devPtr, size_t bytesize) {
-	init_func();
-	cudaError_t (*fakecudaMalloc)( void** , size_t );
-	fakecudaMalloc = dlsym(handle, "cudaMalloc");
-	if ((error = dlerror()) != NULL)  {    
-		fprintf (stderr, "%s\n", error);                                                        
-		exit(1); 
-        }                                       
-	
-	if(check_alloc_valid(bytesize)) {
-    	//printf("lock mem in cumemalloc\n");
-		pthread_mutex_lock(&mem_cnt_lock);
-		total_mem += bytesize;
-		//printf("ibs: %zu\n", bytesize);
-		pthread_mutex_unlock(&mem_cnt_lock);
-		//printf("unlock mem in cumemalloc\n");
-		
-		printf("cudaMalloc:\n");
-		//nvml_memquery();
-		cudaError_t r= (*fakecudaMalloc)( devPtr , bytesize);
-		//nvml_memquery();
-		if(cudaSuccess != r) {
-	    	//printf("lock if r != CUDA_SUCCESS\n");
-            //
-	   		pthread_mutex_lock(&mem_cnt_lock);
-	    	total_mem -= bytesize;                  
-	    	//printf("ibs: %zu\n", bytesize);
-	   		pthread_mutex_unlock(&mem_cnt_lock);
-	 		//printf("unlock if r != CUDA_SUCCESS\n ");
-		} else {			
-			//printf("111\n");
-			unsigned long long p = (unsigned long long)(devPtr);
-			//printf("cudaMalloc:??????????????????????%lld\n", p);
-			addHash(p,bytesize);
-    		getCurrentTime(timebuf);
-            printf("Time: %s  total_mem: %zu bytesize: %zu total_quota: %zu \n", timebuf, total_mem, bytesize, total_quota);
-            //nvml_memquery();
-			//printf("%zu\n", getHash(*(unsigned long long*(*devPtr)));
-		}
-		
-		return r;
-    } else {
-    	return cudaErrorMemoryAllocation;
-  	}
-	//dlclose(handle);
-}
-
-cudaError_t cudaFree( void* devPtr ) {
-        
-	init_func();
-	cudaError_t (*fakecudaFree)( void* );
-    fakecudaFree = dlsym(handle, "cudaFree");
+    init_func();
+    cudaError_t (*fakecudaMalloc)( void** , size_t );
+    fakecudaMalloc = dlsym(handle, "cudaMalloc");
     if ((error = dlerror()) != NULL)  {
         fprintf (stderr, "%s\n", error);
         exit(1);
     }
-	printf("cudaFree:\n");
-	//nvml_memquery();
-    cudaError_t r= (*fakecudaFree)( devPtr );
-	//nvml_memquery();
+    if(check_alloc_valid(bytesize)) {
+        //printf("lock mem in cumemalloc\n");
+        pthread_mutex_lock(&mem_cnt_lock);
+        total_mem += bytesize;
+        //printf("ibs: %zu\n", bytesize);
+        pthread_mutex_unlock(&mem_cnt_lock);
+        //printf("unlock mem in cumemalloc\n");
+
+        printf("cudaMalloc:\n");
+        //nvml_memquery();
+        cudaError_t r= (*fakecudaMalloc)( devPtr , bytesize);
+        //nvml_memquery();
+        if(cudaSuccess != r) {
+            //printf("lock if r != CUDA_SUCCESS\n");
+
+            pthread_mutex_lock(&mem_cnt_lock);
+            total_mem -= bytesize;
+            //printf("ibs: %zu\n", bytesize);
+            pthread_mutex_unlock(&mem_cnt_lock);
+            //printf("unlock if r != CUDA_SUCCESS\n ");
+        } else {
+            //printf("111\n");
+            unsigned long long p = (unsigned long long)(devPtr);
+            //printf("cudaMalloc:??????????????????????%lld\n", p);
+            addHash(p,bytesize);
+            getCurrentTime();
+            printf("Time: %s  total_mem: %zu bytesize: %zu total_quota: %zu \n", timebuf, total_mem, bytesize, total_quota);
+            //nvml_memquery();
+            //printf("*0x%x\n",*devPtr);
+            //printf("&0x%x\n",&devPtr);
+            //printf("0x%x\n",devPtr);
+            //printf("%zu\n", getHash(*(unsigned long long*(*devPtr)));
+        }
+
+        return r;
+    } else {
+        return cudaErrorMemoryAllocation;
+    }
     //dlclose(handle);
-    if(r == CUDA_SUCCESS) {
-		//printf("lock mem in cumemfree\n");
-		pthread_mutex_lock(&mem_cnt_lock);
-		size_t tbytesize = getHash((unsigned long long)(devPtr));
-		//printf("cudaFree!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%lld\n", (unsigned long long) (devPtr));
-		
-		total_mem -= tbytesize;
-		//printf("lock mem in cumemfree\n");
-		pthread_mutex_unlock(&mem_cnt_lock);
-        getCurrentTime(timebuf);
+}
+
+cudaError_t cudaFree( void *devPtr ) {
+    init_func();
+    void *hand;
+    //pthread_mutex_lock(&mem_cnt_lock);
+    hand = dlopen (LIB_STRING_t, RTLD_LAZY);
+    if (!hand) {
+        fprintf (stderr, "%s\n", dlerror());
+        exit(1);
+    }
+    dlerror();
+    cudaError_t (*fakecudaFree)( void* );
+    fakecudaFree = dlsym(hand, "cudaFree");
+    printf("cudaFree\n");
+    if ((error = dlerror()) != NULL)  {
+        fprintf (stderr, "%s\n", error);
+        exit(1);
+    }
+    //printf("hand:0x%x\n",hand);
+    cudaError_t r= (*fakecudaFree)( devPtr );
+    //pthread_mutex_unlock(&mem_cnt_lock);
+    //printf("free result: %d", r);
+    if(r == CUDA_SUCCESS ) {
+        //printf("lock mem in cumemfree\n");
+        pthread_mutex_lock(&mem_cnt_lock);
+        size_t tbytesize = getHash((unsigned long long)(devPtr));
+        //printf("cudaFree!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%lld\n", (unsigned long long) (devPtr));
+        total_mem -= tbytesize;
+        //printf("lock mem in cumemfree\n");
+        pthread_mutex_unlock(&mem_cnt_lock);
+        getCurrentTime();
         printf("Time: %s  total_mem: %zu bytesize: %zu total_quota: %zu \n", timebuf, total_mem, tbytesize, total_quota);
-	}// else {
-	//	printf("%d\n", r);
-	//}
+    }
+    dlclose(hand);
     return r;
 }
 
+
 cudaError_t cudaMemGetInfo( size_t* free , size_t* total) {
-        
+
     init_func();
     cudaError_t (*fakecudaMemGetInfo)( size_t* , size_t* );
     fakecudaMemGetInfo = dlsym(handle, "cudaMemGetInfo");
-    
+
     if ((error = dlerror()) != NULL)  {
         fprintf (stderr, "%s\n", error);
         exit(1);
     }
     cudaError_t r= (*fakecudaMemGetInfo)( free, total );
     //dlclose(handle);
-	//printf("getINfo:free : %zu, total : %zu\n", *free, *total);
+    //printf("getINfo:free : %zu, total : %zu\n", *free, *total);
     //*free = *free / 2;
-	//*total = *total / 2;
-	//printf("getInfofree : %zu, total : %zu\n", *free, *total);
+    //*total = *total / 2;
+    //printf("getInfofree : %zu, total : %zu\n", *free, *total);
     return r;
 }
 
@@ -299,16 +309,16 @@ cudaError_t cudaMallocPitch( void** devPtr, size_t* pitch, size_t width, size_t 
     init_func();
     cudaError_t (*fakecudaMallocPitch)( void** , size_t* , size_t , size_t);
     fakecudaMallocPitch = dlsym(handle, "cudaMallocPitch");
-    
+
     if ((error = dlerror()) != NULL)  {
         fprintf (stderr, "%s\n", error);
         exit(1);
     }
-        
-	//dlclose(handle);
-	
-	size_t bytesize = width * height;
-	if(check_alloc_valid(bytesize)) {
+
+    //dlclose(handle);
+
+    size_t bytesize = width * height;
+    if(check_alloc_valid(bytesize)) {
         //printf("lock mem in cumemallocPitch\n");
         pthread_mutex_lock(&mem_cnt_lock);
         total_mem += bytesize;
@@ -318,7 +328,7 @@ cudaError_t cudaMallocPitch( void** devPtr, size_t* pitch, size_t width, size_t 
         //printf("unlock mem in cumemallocPitch\n");
 
         cudaError_t r= (*fakecudaMallocPitch)( devPtr, pitch, width, height );
-		if(cudaSuccess != r) {
+        if(cudaSuccess != r) {
             //printf("Pitch: lock if r != CUDA_SUCCESS\n");
             pthread_mutex_lock(&mem_cnt_lock);
             total_mem -= bytesize;
@@ -332,7 +342,7 @@ cudaError_t cudaMallocPitch( void** devPtr, size_t* pitch, size_t width, size_t 
             //printf("Pitch devPtr:%lld\n", p);
             addHash(p,bytesize);
             //printf(" %zu\n", bytesize);
-            getCurrentTime(timebuf);
+            getCurrentTime();
             printf("cudaMallocPitch\nTime: %s  total_mem: %zu bytesize: %zu total_quota: %zu \n", timebuf, total_mem, bytesize, total_quota);
             //printf("%zu\n", getHash(*(unsigned long long*(*devPtr)));
         }
@@ -347,15 +357,15 @@ cudaError_t cudaMallocManaged( void** devPtr, size_t bytesize, unsigned int flag
     init_func();
     cudaError_t (*fakecudaMallocManaged)( void** , size_t , unsigned int);
     fakecudaMallocManaged = dlsym(handle, "cudaMallocManaged");
-    
+
     if ((error = dlerror()) != NULL)  {
         fprintf (stderr, "%s\n", error);
         exit(1);
     }
-        
-	//dlclose(handle);
-	
-	if(check_alloc_valid(bytesize)) {
+
+    //dlclose(handle);
+
+    if(check_alloc_valid(bytesize)) {
         //printf("lock mem in cumemallocManaged\n");
         pthread_mutex_lock(&mem_cnt_lock);
         total_mem += bytesize;
@@ -365,7 +375,7 @@ cudaError_t cudaMallocManaged( void** devPtr, size_t bytesize, unsigned int flag
         //printf("unlock mem in cumemallocManaged\n");
 
         cudaError_t r= (*fakecudaMallocManaged)( devPtr, bytesize, flags);
-		if(cudaSuccess != r) {
+        if(cudaSuccess != r) {
             //printf("Managed: lock if r != CUDA_SUCCESS\n");
             pthread_mutex_lock(&mem_cnt_lock);
             total_mem -= bytesize;
@@ -379,7 +389,7 @@ cudaError_t cudaMallocManaged( void** devPtr, size_t bytesize, unsigned int flag
             //printf("Managed devPtr:%lld\n", p);
             addHash(p,bytesize);
             //printf(" %zu\n", bytesize);
-            getCurrentTime(timebuf);
+            getCurrentTime();
             printf("cudaMallocManaged\nTime: %s  total_mem: %zu bytesize: %zu total_quota: %zu \n", timebuf, total_mem, bytesize, total_quota);
             //printf("%zu\n", getHash(*(unsigned long long*(*devPtr)));
         }
@@ -389,4 +399,19 @@ cudaError_t cudaMallocManaged( void** devPtr, size_t bytesize, unsigned int flag
     }
 }
 
+cudaError_t cudaGetDeviceCount( int* count ) {
 
+    init_func();
+    cudaError_t (*fakecudaGetDeviceCount)(int*);
+    fakecudaGetDeviceCount = dlsym(handle, "cudaGetDeviceCount");
+    //printf("cudaGetDeviceCount:\n");
+    if ((error = dlerror()) != NULL)  {
+        fprintf (stderr, "%s\n", error);
+        exit(1);
+    }
+    //nvml_memquery();
+    cudaError_t r= (*fakecudaGetDeviceCount)(count);
+    //nvml_memquery();
+    //dlclose(handle);
+    return r;
+}
