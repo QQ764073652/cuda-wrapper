@@ -17,7 +17,7 @@ unsigned long long mod = 9973L;
 
 static const char LIB_STRING[] = "libcudart.so";
 static const char LIB_STRING_STATIC[] = "libcuda.so";
-static const char LIB_STRING_t[] = "/usr/local/cuda-9.0/targets/x86_64-linux/lib/libcudatr.so";
+static const char LIB_STRING_t[] = "/usr/local/cuda/targets/x86_64-linux/lib/libcudartwrapper.so";
 static const char CONFIG_STRING[] = "VOLCANO_GPU_ALLOCATED";
 
 int open_flag = 0;
@@ -38,20 +38,10 @@ struct HashArray {
 } allocsize[10000];
 /**
  * 支持多进程：1、将HashArray数据输出到文件，使得数据全局唯一
- *          2、定义文件操作，保持HashArray数据跟文件内容一致，可以暂不考虑分布式锁问题(可能会超出一部分)
+ *          2、定义文件操作，保持HashArray数据跟文件内容一致，暂不考虑分布式锁问题(可能会超出一部分)
  * @param key
  * @param value
  */
-void writeData(){
-    FILE *filePointer = NULL;
-    filePointer = fopen("/tmp/hasharray.dat", "a+");
-    fputs("index:data", filepointer);
-    fclose(filepointer);
-}
-void readData(){
-    // 读取数据汇总计算size
-}
-
 void addHash(unsigned long long key, size_t value) {
     int temp = (key % mod);
     if (allocsize[temp].key == 0) {

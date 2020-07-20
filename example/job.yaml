@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: v0.1.0-1595225298
+spec:
+  ttlSecondsAfterFinished: 360
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: worker
+          image: registry.cn-shanghai.aliyuncs.com/ruanxingbaozi/pytorch:1.5.1-cuda10.1-cudnn7-vgpu-example
+          resources:
+            limits:
+              volcano.sh/gpu-memory: 1024
+
